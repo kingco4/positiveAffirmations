@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uplifting Tweets</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .tweet-container {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .tweet-container.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .tweet-text {
+            font-size: 30pt;
+            font-family: Helvetica, Arial, sans-serif;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            word-wrap: break-word;
+        }
+
+        .tweet-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tweet-time {
+            font-size: 15pt;
+            font-family: Helvetica, Arial, sans-serif;
+            color: #999999;
+        }
+
+        .instructions {
+            text-align: center;
+            color: #999;
+            margin-top: 30px;
+            font-size: 14pt;
+        }
+
+        .loading {
+            text-align: center;
+            font-size: 16pt;
+            color: #667eea;
+        }
+
+        .error {
+            background-color: #e74c3c;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tweet-container" id="tweetContainer">
+            <div class="tweet-text" id="tweetText"></div>
+            <div class="tweet-meta">
+                <div class="tweet-time" id="tweetTime"></div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            Press any key to display an uplifting tweet about Black women
+        </div>
+
+        <div id="errorMessage"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
