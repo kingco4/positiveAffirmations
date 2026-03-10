@@ -11,7 +11,6 @@ A JavaScript application that displays AI-generated uplifting affirmations for B
 - 🔒 Secure backend API (API keys not exposed in frontend)
 - 🎲 Always fresh, unique affirmations
 - 📱 Responsive design
-- 💰 Uses free Claude API credits
 
 ## Setup Instructions
 
