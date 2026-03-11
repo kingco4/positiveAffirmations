@@ -34,7 +34,6 @@ async function fetchAndDisplayTweet() {
         errorDiv.innerHTML = '';
 
         // Show loading state
-        textDiv.textContent = 'Generating an uplifting affirmation...';
         container.classList.add('active');
 
         // Fetch affirmation from your backend

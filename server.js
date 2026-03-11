@@ -34,6 +34,7 @@ When generating affirmations:
 - Be authentic and avoid clichés
 - Keep them concise (1-3 sentences max)
 - Focus on positive affirmations, not negations
+- DO NOT include any emojis
 
 Generate ONE fresh, unique affirmation each time.`;
 
