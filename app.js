@@ -7,6 +7,9 @@ const CONFIG = {
 };
 
 let currentTweet = null;
+let isRequestPending = false;
+let lastRequestTime = 0;
+const DEBOUNCE_DELAY = 500; // 500ms debounce to prevent spam
 
 // Letters in "Black Women"
 const ALLOWED_LETTERS = new Set(['b', 'l', 'a', 'c', 'k', 'w', 'o', 'm', 'e', 'n']);
@@ -20,6 +23,12 @@ function handleKeyPress(event) {
 
     // Only proceed if the key is a letter in "Black Women"
     if (ALLOWED_LETTERS.has(letter)) {
+        // Debounce: prevent rapid-fire requests
+        const now = Date.now();
+        if (now - lastRequestTime < DEBOUNCE_DELAY || isRequestPending) {
+            return;
+        }
+        lastRequestTime = now;
         fetchAndDisplayTweet();
     }
 }
@@ -30,6 +39,8 @@ async function fetchAndDisplayTweet() {
     const textDiv = document.getElementById('tweetText');
 
     try {
+        isRequestPending = true;
+
         // Clear error message
         errorDiv.innerHTML = '';
 
@@ -72,6 +83,8 @@ async function fetchAndDisplayTweet() {
             </div>
         `;
         container.classList.remove('active');
+    } finally {
+        isRequestPending = false;
     }
 }
 

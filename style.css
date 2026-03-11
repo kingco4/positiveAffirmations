@@ -28,6 +28,9 @@ body {
     border-radius: 8px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     animation: fadeIn 0.5s ease-in;
+    will-change: opacity;
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 .tweet-container.active {
@@ -37,9 +40,11 @@ body {
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateZ(0);
     }
     to {
         opacity: 1;
+        transform: translateZ(0);
     }
 }
 

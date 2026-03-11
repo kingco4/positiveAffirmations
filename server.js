@@ -47,8 +47,8 @@ app.post('/api/tweets', async (req, res) => {
 
         // Call Claude API to generate an affirmation
         const message = await client.messages.create({
-            model: 'claude-opus-4-6',
-            max_tokens: 256,
+            model: 'claude-haiku-4-5-20251001',
+            max_tokens: 150,
             system: SYSTEM_PROMPT,
             messages: [
                 {
